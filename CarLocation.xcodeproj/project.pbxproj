@@ -13,6 +13,7 @@
 		9ABBB0A922B7E9BE000DF98F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB0A722B7E9BE000DF98F /* Main.storyboard */; };
 		9ABBB0AB22B7E9BF000DF98F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */; };
 		9ABBB0AE22B7E9BF000DF98F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB0AC22B7E9BF000DF98F /* LaunchScreen.storyboard */; };
+		9AEF89C022CF21CD009EEF10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AEF89BF22CF21CD009EEF10 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ABBB0AD22B7E9BF000DF98F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ABBB0AF22B7E9BF000DF98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AEF89BF22CF21CD009EEF10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AAC16C5AF89DAA3B2B076D57 /* Pods_CarLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */,
 				9ABBB0AC22B7E9BF000DF98F /* LaunchScreen.storyboard */,
 				9ABBB0AF22B7E9BF000DF98F /* Info.plist */,
+				9AEF89BF22CF21CD009EEF10 /* GoogleService-Info.plist */,
 			);
 			path = CarLocation;
 			sourceTree = "<group>";
@@ -100,6 +103,7 @@
 				9ABBB09D22B7E9BE000DF98F /* Frameworks */,
 				9ABBB09E22B7E9BE000DF98F /* Resources */,
 				A28BA0521820458C25521C5F /* [CP] Copy Pods Resources */,
+				C3CAA80992EDAAC60DBBDE93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ABBB0AE22B7E9BF000DF98F /* LaunchScreen.storyboard in Resources */,
+				9AEF89C022CF21CD009EEF10 /* GoogleService-Info.plist in Resources */,
 				9ABBB0AB22B7E9BF000DF98F /* Assets.xcassets in Resources */,
 				9ABBB0A922B7E9BE000DF98F /* Main.storyboard in Resources */,
 			);
@@ -201,6 +206,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3CAA80992EDAAC60DBBDE93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

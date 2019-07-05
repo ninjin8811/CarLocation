@@ -9,5 +9,8 @@ target 'CarLocation' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore’
 
 end
