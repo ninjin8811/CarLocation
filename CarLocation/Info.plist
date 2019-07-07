@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Font Awesome 5 Free-Solid-900</string>
+		<string>Font Awesome 5 Brands-Regular-400</string>
+		<string>Font Awesome 5 Free-Regular-400</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>位置情報取得の許可をお願いします</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>アプリを使用中の位置情報の許可をお願いします</string>
+	<key>NSLocationUsageDescription</key>
+	<string>位置情報取得の許可をお願いします</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>許可をお願いします</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -41,11 +55,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>googlechromes</string>
-        <string>comgooglemaps</string>
-    </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 </dict>
 </plist>

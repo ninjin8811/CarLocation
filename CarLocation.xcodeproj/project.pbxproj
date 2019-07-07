@@ -26,6 +26,9 @@
 		9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ABBB0AD22B7E9BF000DF98F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ABBB0AF22B7E9BF000DF98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ADF58AE22D1CEDD00824773 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		9ADF58AF22D1CEDE00824773 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		9ADF58B022D1CEDE00824773 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		9AEF89BF22CF21CD009EEF10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AAC16C5AF89DAA3B2B076D57 /* Pods_CarLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +79,9 @@
 				9ABBB0A722B7E9BE000DF98F /* Main.storyboard */,
 				9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */,
 				9ABBB0AC22B7E9BF000DF98F /* LaunchScreen.storyboard */,
+				9ADF58AF22D1CEDE00824773 /* Font Awesome 5 Brands-Regular-400.otf */,
+				9ADF58B022D1CEDE00824773 /* Font Awesome 5 Free-Regular-400.otf */,
+				9ADF58AE22D1CEDD00824773 /* Font Awesome 5 Free-Solid-900.otf */,
 				9ABBB0AF22B7E9BF000DF98F /* Info.plist */,
 				9AEF89BF22CF21CD009EEF10 /* GoogleService-Info.plist */,
 			);
