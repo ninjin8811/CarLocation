@@ -45,6 +45,7 @@ PODS:
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
+  - FontAwesome.swift (1.7.1)
   - GoogleAppMeasurement (6.0.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -104,6 +105,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - FontAwesome.swift
   - GoogleMaps
   - GooglePlaces
   - SwiftLint
@@ -117,6 +119,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FontAwesome.swift
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlaces
@@ -136,6 +139,7 @@ SPEC CHECKSUMS:
   FirebaseCore: e38f025287b413255a53acc1945d048a112047f7
   FirebaseFirestore: 0537b2a960a4819fae2834e688e5daeb571c81d6
   FirebaseInstanceID: 0e0348a3c00a734fa376a070f5ad4533ad975cb5
+  FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
   GoogleAppMeasurement: 7f028ea162b72c8f326daec74afc95d94f7a47d6
   GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
   GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
@@ -147,6 +151,6 @@ SPEC CHECKSUMS:
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: e8d8bf5c46f495663f06f37d9036fd7519a254a6
+PODFILE CHECKSUM: d4c6f3a055ffab9a21fb25868b42f158dbbf7624
 
 COCOAPODS: 1.5.3
