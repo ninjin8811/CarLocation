@@ -2,6 +2,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import FontAwesome_swift
 
 class ViewController: UIViewController{
     
@@ -10,6 +11,10 @@ class ViewController: UIViewController{
     var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
+    let sidemenuViewController = SideMenuViewController()
+    var isShownSideMenu: Bool {
+        return sidemenuViewController.parent == self
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,7 @@ class ViewController: UIViewController{
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
-        view = mapView
+        view.addSubview(mapView)
 
         //シドニーにマーカーを設置
         let marker = GMSMarker()
@@ -35,15 +40,60 @@ class ViewController: UIViewController{
         marker.map = mapView
 
         renderMenuButton()
+        
+        sidemenuViewController.delegate = self
+        sidemenuViewController.startPanGestureRecognizing()
     }
     
+    //メニューボタンの作成
     func renderMenuButton() {
-        let menuButton = UIButton(type: .detailDisclosure)
+        let menuButton = UIButton(type: .custom)
         self.view.addSubview(menuButton)
         
         menuButton.translatesAutoresizingMaskIntoConstraints = false
-        menuButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
-        menuButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
+        menuButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
+        menuButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        menuButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 25, style: .solid)
+        menuButton.setTitleColor(.black, for: .normal)
+        menuButton.setTitleColor(.gray, for: .highlighted)
+        menuButton.setTitle(String.fontAwesomeIcon(name: .bars), for: .normal)
+        
+        menuButton.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
+    }
+
+    private func showSidemenu(contentAvailability: Bool = true, animated: Bool) {
+        
+        if isShownSideMenu {
+            return
+        }
+        
+        addChild(sidemenuViewController)
+        sidemenuViewController.view.autoresizingMask = .flexibleHeight
+        sidemenuViewController.view.frame = view.bounds
+        view.insertSubview(sidemenuViewController.view, aboveSubview: self.view)
+        sidemenuViewController.didMove(toParent: self)
+        if contentAvailability {
+            sidemenuViewController.showContentView(animated: animated)
+        }
+        
+        
+    }
+    
+    private func hideSidemenu(animated: Bool) {
+        if !isShownSideMenu {
+            return
+        }
+        
+        sidemenuViewController.hideContentView(animated: animated) { (_) in
+            self.sidemenuViewController.willMove(toParent: nil)
+            self.sidemenuViewController.removeFromParent()
+            self.sidemenuViewController.view.removeFromSuperview()
+        }
+    }
+    
+    @objc func menuButtonPressed(_ sender: UIButton) {
+        print("ボタンがタップされました")
+        showSidemenu(animated: true)
     }
 }
 
@@ -83,6 +133,8 @@ extension ViewController: CLLocationManagerDelegate {
 
 // MARK: - GMSMapViewDelegate
 extension ViewController: GMSMapViewDelegate {
+    
+    //マップが長押しされたときにマーカーを設置
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         print("長押しされました")
         print(coordinate)
@@ -92,4 +144,28 @@ extension ViewController: GMSMapViewDelegate {
         marker.snippet = "あああああああ"
         marker.map = mapView
     }
+}
+
+extension ViewController: SidemenuViewControllerDelegate {
+    func parentViewControllerForSidemenuViewController(_ sidemenuViewController: SideMenuViewController) -> UIViewController {
+        return self
+    }
+    
+    func shouldPresentForSidemenuViewController(_ sidemenuViewController: SideMenuViewController) -> Bool {
+        return true
+    }
+    
+    func sidemenuViewControllerDidRequestShowing(_ sidemenuViewController: SideMenuViewController, contentAvailability: Bool, animated: Bool) {
+        showSidemenu(contentAvailability: contentAvailability, animated: animated)
+    }
+    
+    func sidemenuViewControllerDidRequestHiding(_ sidemenuViewController: SideMenuViewController, animated: Bool) {
+        hideSidemenu(animated: animated)
+    }
+    
+    func sidemenuViewController(_ sidemenuViewController: SideMenuViewController, didSelectItemAt indexPath: IndexPath) {
+        hideSidemenu(animated: true)
+    }
+    
+    
 }
