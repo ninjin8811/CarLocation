@@ -28,17 +28,17 @@ class SideMenuViewController: UIViewController {
     private var beganLocation: CGPoint = .zero
     private var beganState: Bool = false
     private var contentMaxWidth: CGFloat {
-        return view.bounds.width * 0.8
+        return view.bounds.width * 0.7
     }
     
     //指でスクロールしたときの微妙な位置を表現
     private var contentRatio: CGFloat {
         get {
-            return contentView.frame.maxX / contentMaxWidth
+            return (view.bounds.maxX - contentView.frame.origin.x) / contentMaxWidth
         }
         set {
             let ratio = min(max(newValue, 0), 1)
-            contentView.frame.origin.x = contentMaxWidth * ratio - contentView.frame.width
+            contentView.frame.origin.x = view.bounds.width - contentMaxWidth * ratio
             contentView.layer.shadowColor = UIColor.black.cgColor
             contentView.layer.shadowRadius = 3.0
             contentView.layer.shadowOpacity = 0.8
@@ -53,7 +53,7 @@ class SideMenuViewController: UIViewController {
         //コンテントビューの大きさ、位置、高さを設定し、親ビューに追加
         var contentRect = view.bounds
         contentRect.size.width = contentMaxWidth
-        contentRect.origin.x = -contentRect.width
+        contentRect.origin.x = view.bounds.width
         contentView.frame = contentRect
         contentView.backgroundColor = .white
         contentView.autoresizingMask = .flexibleHeight
@@ -76,10 +76,11 @@ class SideMenuViewController: UIViewController {
     
     //これは特に理解しなくても良い
     @objc private func backgroundTapped(sender: UITapGestureRecognizer) {
+        print(contentRatio)
         
-        //タップアクションが有効なのは、画面右側のバックグラウンドビューのみという設定
+        //タップアクションが有効なのは、画面左側のバックグラウンドビューのみという設定
         let tappedLocation = sender.location(in: view)
-        if sender.state == .ended && tappedLocation.x > contentMaxWidth {
+        if sender.state == .ended && tappedLocation.x < view.bounds.width - contentMaxWidth {
             hideContentView(animated: true) { (_) in
                 self.willMove(toParent: nil)
                 self.removeFromParent()
@@ -127,7 +128,7 @@ class SideMenuViewController: UIViewController {
         }
         
         let translation = panGestureRecognizer.translation(in: view)
-        if translation.x > 0 && contentRatio == 1.0 {
+        if translation.x > 0 && contentRatio == 1.1 {
             return
         }
         
@@ -136,20 +137,22 @@ class SideMenuViewController: UIViewController {
         case .began:
             beganState = isShown
             beganLocation = location
-            if translation.x >= 0 {
+            if translation.x <= 0 {
                 self.delegate?.sidemenuViewControllerDidRequestShowing(self, contentAvailability: false, animated: false)
             }
         case .changed:
-            let distance = beganState ? beganLocation.x - location.x : location.x - beganLocation.x
+            let distance = beganState ? location.x - beganLocation.x : beganLocation.x - location.x
             if distance >= 0 {
-                let ratio = distance / (beganState ? beganLocation.x : (view.bounds.width - beganLocation.x))
+                let ratio = distance / (beganState ? (view.bounds.width - beganLocation.x) : beganLocation.x)
                 let contentRatio = beganState ? 1 - ratio : ratio
                 self.contentRatio = contentRatio
+                print(contentRatio)
             }
             
         case .ended, .cancelled, .failed:
+            print(contentRatio)
             if contentRatio <= 1.0, contentRatio >= 0 {
-                if location.x > beganLocation.x {
+                if location.x < beganLocation.x {
                     showContentView(animated: true)
                 } else {
                     self.delegate?.sidemenuViewControllerDidRequestHiding(self, animated: true)
