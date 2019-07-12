@@ -28,8 +28,10 @@ class SideMenuViewController: UIViewController {
     private var beganLocation: CGPoint = .zero
     private var beganState: Bool = false
     private var contentMaxWidth: CGFloat {
-        return view.bounds.width * 0.7
+        return view.bounds.width * 0.6
     }
+    
+    let menuList = ["バス路線検索", "お知らせ", "設定", "管理マップへ"]
     
     //指でスクロールしたときの微妙な位置を表現
     private var contentRatio: CGFloat {
@@ -43,7 +45,7 @@ class SideMenuViewController: UIViewController {
             contentView.layer.shadowRadius = 3.0
             contentView.layer.shadowOpacity = 0.8
             
-            view.backgroundColor = UIColor(white: 0, alpha: 0.3 * ratio)
+            view.backgroundColor = UIColor(white: 0, alpha: 0.2 * ratio)
         }
     }
 
@@ -57,15 +59,36 @@ class SideMenuViewController: UIViewController {
         contentView.frame = contentRect
         contentView.backgroundColor = .white
         contentView.autoresizingMask = .flexibleHeight
+        contentView.alpha = 0.9
         view.addSubview(contentView)
         
         //テーブルビューをコンテントビューに追加
+        let statusbarHeight = UIApplication.shared.statusBarFrame.height
+        tableView.contentInset = UIEdgeInsets(top: statusbarHeight, left: 0, bottom: 0, right: 0)
         tableView.frame = contentView.bounds
         tableView.separatorInset = .zero
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default")
+        tableView.isScrollEnabled = false
+        
+        let headerView = UIView()
+        headerView.frame.size.height = 60
+        tableView.tableHeaderView = headerView
+        
+        let footerView = UIView()
+        let footerLabel = UILabel()
+        footerLabel.frame = CGRect(x: 0, y: 0, width: contentMaxWidth - 10, height: 50)
+        footerLabel.text = "Version 1.0"
+        footerLabel.font = footerLabel.font.withSize(14)
+        footerLabel.textAlignment = .right
+        footerView.alpha = 0.6
+        footerView.addSubview(footerLabel)
+        footerView.frame.size.height = 50
+        tableView.tableFooterView = footerView
+        
         contentView.addSubview(tableView)
+        
         tableView.reloadData()
         
         //タップ感知の追加
@@ -76,7 +99,6 @@ class SideMenuViewController: UIViewController {
     
     //これは特に理解しなくても良い
     @objc private func backgroundTapped(sender: UITapGestureRecognizer) {
-        print(contentRatio)
         
         //タップアクションが有効なのは、画面左側のバックグラウンドビューのみという設定
         let tappedLocation = sender.location(in: view)
@@ -128,7 +150,7 @@ class SideMenuViewController: UIViewController {
         }
         
         let translation = panGestureRecognizer.translation(in: view)
-        if translation.x > 0 && contentRatio == 1.1 {
+        if translation.x < 0 && contentRatio == 1.0 {
             return
         }
         
@@ -150,7 +172,6 @@ class SideMenuViewController: UIViewController {
             }
             
         case .ended, .cancelled, .failed:
-            print(contentRatio)
             if contentRatio <= 1.0, contentRatio >= 0 {
                 if location.x < beganLocation.x {
                     showContentView(animated: true)
@@ -169,13 +190,22 @@ class SideMenuViewController: UIViewController {
 //MARK - テーブルビューのDelegate
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return menuList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Default", for: indexPath)
-        cell.textLabel?.text = "Item \(indexPath.row)"
+        cell.textLabel?.text = menuList[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.sidemenuViewController(self, didSelectItemAt: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 

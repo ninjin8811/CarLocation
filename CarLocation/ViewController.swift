@@ -32,13 +32,6 @@ class ViewController: UIViewController{
         mapView.delegate = self
         view.addSubview(mapView)
 
-        //シドニーにマーカーを設置
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
-
         renderMenuButton()
         
         sidemenuViewController.delegate = self
@@ -165,7 +158,16 @@ extension ViewController: SidemenuViewControllerDelegate {
     
     func sidemenuViewController(_ sidemenuViewController: SideMenuViewController, didSelectItemAt indexPath: IndexPath) {
         hideSidemenu(animated: true)
+        
+        switch indexPath.row {
+        case 3:
+            performSegue(withIdentifier: "goToAdminView", sender: self)
+            print(indexPath.row)
+            break
+            
+        default:
+            print(indexPath.row)
+            break
+        }
     }
-    
-    
 }
