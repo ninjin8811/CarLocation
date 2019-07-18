@@ -78,7 +78,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ルート一覧" id="F8A-Fs-i2P">
-                        <barButtonItem key="rightBarButtonItem" title="追加" id="BoS-HF-npv"/>
+                        <barButtonItem key="rightBarButtonItem" title="追加" id="BoS-HF-npv">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="9Bg-Eh-hjg" id="kxb-xB-9Hs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Ry4-XQ-38C" kind="show" identifier="goToEditRouteView" id="Am6-Ec-epZ"/>

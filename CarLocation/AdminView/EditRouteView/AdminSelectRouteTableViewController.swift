@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import CodableFirebase
+import Firebase
+import FirebaseFirestore
 
 class AdminSelectRouteTableViewController: UITableViewController {
     
     var routeList = [RouteData]()
+    let correspondFirestore = CorrespondData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,42 @@ class AdminSelectRouteTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let addRouteAlert = UIAlertController(title: "ルートの追加", message: "路線名を追加してください", preferredStyle: .alert)
+        addRouteAlert.addTextField(configurationHandler: nil)
+        let okAction = UIAlertAction(title: "追加", style: .default) { (action) in
+            print("追加ボタンが押されました")
+            
+            let routeItem = RouteData()
+            
+            guard let textfields = addRouteAlert.textFields else {
+                preconditionFailure("テキストフィールドの取得に失敗しました")
+            }
+            guard !textfields.isEmpty else {
+                return
+            }
+            guard let addText = textfields.last?.text else {
+                preconditionFailure("追加する路線名の取得に失敗しました")
+            }
+            if addText != "" {
+                routeItem.routeName = addText
+            } else {
+                return
+            }
+            do {
+                let encodedRouteData = try FirestoreEncoder().encode(routeItem)
+                self.correspondFirestore.storeData(encodedRouteData)
+            } catch {
+                print("エンコードに失敗しました：\(error)")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        
+        addRouteAlert.addAction(okAction)
+        addRouteAlert.addAction(cancelAction)
+        
+        self.present(addRouteAlert, animated: true, completion: nil)
+    }
     // MARK: - Table view data source
 
 

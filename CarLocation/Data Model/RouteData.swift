@@ -7,16 +7,15 @@
 //
 
 import Foundation
-import UIKit
+import CodableFirebase
 
-class RouteData {
-    var routeName = "Default"
-    var timeTableImage = UIImage(named: "no-image")
+class RouteData: Codable {
+    var routeName: String = "Default"
     var spotList = [spotData]()
 }
 
-class spotData {
-    var spotName = "Default"
-    var latitude = 0
-    var longitude = 0
+class spotData: Codable {
+    var spotName: String
+    var latitude: Double
+    var longitude: Double
 }

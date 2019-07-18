@@ -9,10 +9,50 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import CodableFirebase
 
-class RequestData {
+class CorrespondData {
     
-}
+    let firestoreDB = Firestore.firestore()
+    
+    func storeData(_ data: Any) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            preconditionFailure("ユーザーIDの取得に失敗しました")
+        }
+        guard let dictionaryData = data as? [String: Any] else {
+            preconditionFailure("保存する路線データを辞書型に変換できませんでした")
+        }
+        firestoreDB.collection("users").document(uid).setData(dictionaryData) { (error) in
+            if let errorMessege = error {
+                print("FireStoreへのデータの保存に失敗しました：\(errorMessege)")
+            } else {
+                print("データをFirestoreへ保存しました")
+            }
+        }
+        
+    }
+    
+    func fetchData() {
+        
+    }
+ }
+
+
+//guard let uid = userID else {
+//    preconditionFailure("ユーザーIDが渡されてませんでした！")
+//}
+//
+//let profileDictionary: [String: Any] = ["gender": gender, "name": name, "age": age, "team": team, "region": region, "userID": uid, "imageURL": profileData.imageURL]
+//
+//db.collection("users").document(uid).setData(profileDictionary) { (error) in
+//    if error != nil {
+//        print("セーブできませんでした！")
+//    } else {
+//        print("セーブできました！")
+//    }
+//}
+
+
 //var ref = db.collection("users") as Query
 //
 //for i in 0..<child.count {
