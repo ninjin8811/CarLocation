@@ -9,7 +9,14 @@
 /* Begin PBXBuildFile section */
 		236916DB6FED720BB9D23D1B /* Pods_CarLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC16C5AF89DAA3B2B076D57 /* Pods_CarLocation.framework */; };
 		9A09671C22D8E2B20011A329 /* AdminMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */; };
+		9A247EEE22E09ED4008A0C06 /* CorrespondFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A247EED22E09ED4008A0C06 /* CorrespondFirestore.swift */; };
+		9A5239C822D8EAB400E584E2 /* AdminMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239C722D8EAB400E584E2 /* AdminMapViewController.swift */; };
+		9A5239CC22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239CB22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift */; };
+		9A5239CE22D9AD0500E584E2 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239CD22D9AD0500E584E2 /* RouteData.swift */; };
+		9A5239D122DF6EE400E584E2 /* AdminEditRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239D022DF6EE400E584E2 /* AdminEditRouteTableViewController.swift */; };
+		9A5239D322DF6F0D00E584E2 /* AdminTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239D222DF6F0D00E584E2 /* AdminTimetableViewController.swift */; };
 		9A62A5A222D1ED540045E882 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62A5A122D1ED540045E882 /* SideMenuViewController.swift */; };
+		9A6871D022E083DB00F1F8DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6871CF22E083DB00F1F8DE /* LoginViewController.swift */; };
 		9ABBB0A422B7E9BE000DF98F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABBB0A322B7E9BE000DF98F /* AppDelegate.swift */; };
 		9ABBB0A622B7E9BE000DF98F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABBB0A522B7E9BE000DF98F /* ViewController.swift */; };
 		9ABBB0A922B7E9BE000DF98F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB0A722B7E9BE000DF98F /* Main.storyboard */; };
@@ -22,7 +29,14 @@
 		77D38E7B987751D07F10BF9C /* Pods-CarLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4BE62763E2E0C113DFD7C0 /* Pods-CarLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation.release.xcconfig"; sourceTree = "<group>"; };
 		9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuTableViewController.swift; sourceTree = "<group>"; };
+		9A247EED22E09ED4008A0C06 /* CorrespondFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrespondFirestore.swift; sourceTree = "<group>"; };
+		9A5239C722D8EAB400E584E2 /* AdminMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMapViewController.swift; sourceTree = "<group>"; };
+		9A5239CB22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectRouteTableViewController.swift; sourceTree = "<group>"; };
+		9A5239CD22D9AD0500E584E2 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
+		9A5239D022DF6EE400E584E2 /* AdminEditRouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditRouteTableViewController.swift; sourceTree = "<group>"; };
+		9A5239D222DF6F0D00E584E2 /* AdminTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTimetableViewController.swift; sourceTree = "<group>"; };
 		9A62A5A122D1ED540045E882 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		9A6871CF22E083DB00F1F8DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9ABBB0A022B7E9BE000DF98F /* CarLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABBB0A322B7E9BE000DF98F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ABBB0A522B7E9BE000DF98F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +71,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A5239C622D8EA6C00E584E2 /* AdminView */ = {
+			isa = PBXGroup;
+			children = (
+				9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */,
+				9A6871CF22E083DB00F1F8DE /* LoginViewController.swift */,
+				9A6871CE22E0812A00F1F8DE /* EditRouteView */,
+			);
+			path = AdminView;
+			sourceTree = "<group>";
+		};
+		9A5239CF22D9AD1200E584E2 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A5239CD22D9AD0500E584E2 /* RouteData.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		9A6871CD22E0810B00F1F8DE /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				9ABBB0A522B7E9BE000DF98F /* ViewController.swift */,
+			);
+			path = StartView;
+			sourceTree = "<group>";
+		};
+		9A6871CE22E0812A00F1F8DE /* EditRouteView */ = {
+			isa = PBXGroup;
+			children = (
+				9A5239D222DF6F0D00E584E2 /* AdminTimetableViewController.swift */,
+				9A5239D022DF6EE400E584E2 /* AdminEditRouteTableViewController.swift */,
+				9A5239CB22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift */,
+				9A5239C722D8EAB400E584E2 /* AdminMapViewController.swift */,
+			);
+			path = EditRouteView;
+			sourceTree = "<group>";
+		};
 		9ABBB09722B7E9BE000DF98F = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				9ABBB0A322B7E9BE000DF98F /* AppDelegate.swift */,
-				9ABBB0A522B7E9BE000DF98F /* ViewController.swift */,
 				9A62A5A122D1ED540045E882 /* SideMenuViewController.swift */,
-				9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */,
+				9A247EED22E09ED4008A0C06 /* CorrespondFirestore.swift */,
+				9A5239CF22D9AD1200E584E2 /* Data Model */,
+				9A6871CD22E0810B00F1F8DE /* StartView */,
+				9A5239C622D8EA6C00E584E2 /* AdminView */,
 				9ABBB0A722B7E9BE000DF98F /* Main.storyboard */,
 				9ABBB0AA22B7E9BF000DF98F /* Assets.xcassets */,
 				9ABBB0AC22B7E9BF000DF98F /* LaunchScreen.storyboard */,
@@ -230,9 +283,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -243,9 +299,12 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -263,10 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5239CE22D9AD0500E584E2 /* RouteData.swift in Sources */,
+				9A5239D322DF6F0D00E584E2 /* AdminTimetableViewController.swift in Sources */,
 				9ABBB0A622B7E9BE000DF98F /* ViewController.swift in Sources */,
+				9A5239CC22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift in Sources */,
+				9A5239C822D8EAB400E584E2 /* AdminMapViewController.swift in Sources */,
 				9A62A5A222D1ED540045E882 /* SideMenuViewController.swift in Sources */,
 				9A09671C22D8E2B20011A329 /* AdminMenuTableViewController.swift in Sources */,
 				9ABBB0A422B7E9BE000DF98F /* AppDelegate.swift in Sources */,
+				9A247EEE22E09ED4008A0C06 /* CorrespondFirestore.swift in Sources */,
+				9A6871D022E083DB00F1F8DE /* LoginViewController.swift in Sources */,
+				9A5239D122DF6EE400E584E2 /* AdminEditRouteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,5 +13,9 @@ target 'CarLocation' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore’
   pod 'FontAwesome.swift'
+  pod 'SVProgressHUD'
+  pod 'Firebase/Auth'
+  pod 'CodableFirebase'
+
 
 end

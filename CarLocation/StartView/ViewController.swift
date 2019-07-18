@@ -9,7 +9,6 @@ class ViewController: UIViewController{
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     let sidemenuViewController = SideMenuViewController()
     var isShownSideMenu: Bool {
@@ -18,7 +17,7 @@ class ViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
 
         setupLocationManager()
@@ -95,9 +94,9 @@ extension ViewController: CLLocationManagerDelegate {
 
     func setupLocationManager() {
         let status = CLLocationManager.authorizationStatus()
-        if status == .authorizedAlways {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
             print("位置情報の取得を開始します")
-            locationManager.distanceFilter = 50
+            locationManager.distanceFilter = 10
             locationManager.startUpdatingLocation()
         } else {
             print("位置情報取得の許可がありません")
@@ -161,7 +160,7 @@ extension ViewController: SidemenuViewControllerDelegate {
         
         switch indexPath.row {
         case 3:
-            performSegue(withIdentifier: "goToAdminView", sender: self)
+            performSegue(withIdentifier: "goToLoginView", sender: self)
             print(indexPath.row)
             break
             
