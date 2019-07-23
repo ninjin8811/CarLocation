@@ -11,6 +11,7 @@ import CodableFirebase
 
 class RouteData: Codable {
     var routeName: String = "Default"
+    var updatedDate: TimeInterval = 0
     var spotList = [spotData]()
 }
 

@@ -13,18 +13,19 @@ import FirebaseFirestore
 
 class AdminSelectRouteTableViewController: UITableViewController {
     
-    var routeList = [RouteData]()
     let correspondFirestore = CorrespondData()
+    var selectedIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        //1つだけサンプルとしてルートを作っておく
-        let route = RouteData()
-        route.routeName = "サンプル"
-        routeList.append(route)
-        tableView.reloadData()
+        //Firestoreと通信してデータを取得
+        correspondFirestore.fetchData { (isFetched) in
+            if isFetched {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -51,7 +52,15 @@ class AdminSelectRouteTableViewController: UITableViewController {
             }
             do {
                 let encodedRouteData = try FirestoreEncoder().encode(routeItem)
-                self.correspondFirestore.storeData(encodedRouteData)
+                self.correspondFirestore.storeData(encodedRouteData, { (isStored) in
+                    if isStored {
+                        self.correspondFirestore.fetchData({ (isFetched) in
+                            if isFetched {
+                                self.tableView.reloadData()
+                            }
+                        })
+                    }
+                })
             } catch {
                 print("エンコードに失敗しました：\(error)")
             }
@@ -63,19 +72,33 @@ class AdminSelectRouteTableViewController: UITableViewController {
         
         self.present(addRouteAlert, animated: true, completion: nil)
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? AdminEditRouteTableViewController else {
+            preconditionFailure("遷移先のViewControllerを取得できませんでした")
+        }
+        destinationVC.correspondFirestore = correspondFirestore
+        destinationVC.selectedIndex = selectedIndex
+    }
+    
+    
     // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeList.count
+        return correspondFirestore.routes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeListCell", for: indexPath)
         
-        cell.textLabel?.text = routeList[indexPath.row].routeName
+        cell.textLabel?.text = correspondFirestore.routes[indexPath.row].routeName
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "goToEditRouteView", sender: self)
     }
 
 }

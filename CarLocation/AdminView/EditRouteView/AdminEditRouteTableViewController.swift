@@ -11,10 +11,23 @@ import UIKit
 class AdminEditRouteTableViewController: UITableViewController {
     
     let editMenuList = ["時刻表の確認・追加", "地点の編集・追加"]
+    var correspondFirestore: CorrespondData?
+    var selectedIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = correspondFirestore?.routes[selectedIndex].routeName ?? "ルートの編集"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAdminMapView" {
+            guard let destinationVC = segue.destination as? AdminMapViewController else {
+                preconditionFailure("遷移先のViewControllerを取得できませんでした")
+            }
+            destinationVC.correspondFirestore = correspondFirestore
+            destinationVC.selectedIndex = selectedIndex
+        }
     }
 
     // MARK: - Table view data source

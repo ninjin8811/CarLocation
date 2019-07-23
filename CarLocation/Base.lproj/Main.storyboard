@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="342"/>
+            <point key="canvasLocation" x="16" y="240"/>
         </scene>
         <!--管理者メニュー-->
         <scene sceneID="FWC-Es-Ihv">
@@ -118,14 +118,14 @@
                     <navigationItem key="navigationItem" title="編集" id="VmU-Xj-bBe"/>
                     <connections>
                         <segue destination="jJU-ON-COp" kind="show" identifier="goToAdminTimetableView" id="s1B-0p-olB"/>
-                        <segue destination="H5P-aw-VX0" kind="presentation" identifier="goToAdminMapView" id="MgP-TW-ty9"/>
+                        <segue destination="H5P-aw-VX0" kind="show" identifier="goToAdminMapView" id="MgP-TW-ty9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAM-VE-pmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4384" y="-794"/>
         </scene>
-        <!--Admin Map View Controller-->
+        <!--地点の追加・削除-->
         <scene sceneID="vZt-UH-S3m">
             <objects>
                 <viewController id="H5P-aw-VX0" customClass="AdminMapViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,6 +135,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bhv-ns-bvf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="地点の追加・削除" id="BVs-R4-QS5">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="q7v-zc-vAa"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU0-tu-PY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTZ-dG-pwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="-389"/>
+            <point key="canvasLocation" x="1822" y="-389"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="LH0-kK-OJv">

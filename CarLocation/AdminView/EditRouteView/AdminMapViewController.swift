@@ -15,6 +15,8 @@ class AdminMapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
+    var correspondFirestore: CorrespondData?
+    var selectedIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class AdminMapViewController: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         view.addSubview(mapView)
+        
+        self.navigationItem.title = correspondFirestore?.routes[selectedIndex].routeName ?? "地点の追加・削除"
     }
     
 }
@@ -77,14 +81,14 @@ extension AdminMapViewController: GMSMapViewDelegate {
     
     //マップが長押しされたときにマーカーを設置
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-//        print(coordinate)
-//        let marker = GMSMarker(position: coordinate)
-//        marker.title = "Hello World"
-//        marker.appearAnimation = .pop
-//        marker.snippet = "あああああああ"
-//        marker.map = mapView
+        print(coordinate)
+        let marker = GMSMarker(position: coordinate)
+        marker.title = "Hello World"
+        marker.appearAnimation = .pop
+        marker.snippet = "あああああああ"
+        marker.map = mapView
         
-        //---------------------------------
-        //ここに長押しされたときにバス停追加のメニューを表示する処理を書く
+//        ---------------------------------
+//        ここに長押しされたときにバス停追加のメニューを表示する処理を書く
     }
 }
