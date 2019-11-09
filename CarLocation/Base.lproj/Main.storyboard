@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,26 +14,98 @@
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="cIW-Jw-rQh" kind="show" identifier="goToLoginView" id="mcp-6f-L26"/>
+                        <segue destination="1KK-cR-icZ" kind="show" identifier="goToSelectSchool" id="ZoC-Hj-lln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16" y="240"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ICK-fq-S3W">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="1KK-cR-icZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z7H-yT-e93"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M3T-Qv-xi1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="V4O-En-1yU" kind="relationship" relationship="rootViewController" id="apJ-T3-cM4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXF-cw-uYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="906"/>
+        </scene>
+        <!--Select School View Controller-->
+        <scene sceneID="RaB-1f-jQ8">
+            <objects>
+                <viewController id="V4O-En-1yU" customClass="SelectSchoolViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2XH-Gb-Gde">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3Qq-nT-lN5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8nA-FY-qJm"/>
+                    <connections>
+                        <segue destination="TTR-9Q-qES" kind="show" identifier="goToSelectPoint" id="JoF-st-bCl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DSZ-jm-Zqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="907"/>
+        </scene>
+        <!--Select Point View Controller-->
+        <scene sceneID="jfj-nx-RwK">
+            <objects>
+                <viewController id="TTR-9Q-qES" customClass="SelectPointViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfm-Z0-w6K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9Vd-le-fvV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dTE-CX-1Zn"/>
+                    <connections>
+                        <segue destination="KqO-e0-bRk" kind="show" identifier="goToRouteDetail" id="UYU-wG-N1q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9V-5W-yE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="907"/>
+        </scene>
+        <!--Route Detail View Controller-->
+        <scene sceneID="Qm0-gi-wLO">
+            <objects>
+                <viewController id="KqO-e0-bRk" customClass="RouteDetailViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ec-va-gMO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FBn-e9-QWr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hpW-X2-6c5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UoD-ib-UR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="908"/>
+        </scene>
         <!--管理者メニュー-->
         <scene sceneID="FWC-Es-Ihv">
             <objects>
-                <tableViewController id="CVz-8z-fN2" customClass="AdminMenuTableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="CVz-8z-fN2" customClass="AdminMenuTableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jYX-sC-bja">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="adminMenuCell" id="Kkd-sh-rWr">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kkd-sh-rWr" id="NSf-1i-Y6n">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -48,26 +118,75 @@
                     <navigationItem key="navigationItem" title="管理者メニュー" id="z5M-5E-UkX"/>
                     <connections>
                         <segue destination="9Bg-Eh-hjg" kind="show" identifier="goToRouteListView" id="A4W-CC-iSG"/>
+                        <segue destination="GkE-Gn-Ebp" kind="show" identifier="goToSelectLocationRoute" id="8ID-3M-3dj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ns1-bc-WPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2700" y="-389"/>
         </scene>
+        <!--Location Route Table View Controller-->
+        <scene sceneID="4zf-jx-1Dt">
+            <objects>
+                <tableViewController id="GkE-Gn-Ebp" customClass="LocationRouteTableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HbP-Fb-VWM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="uploadRouteCell" id="S82-wq-om9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S82-wq-om9" id="ECT-cx-xf6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GkE-Gn-Ebp" id="vnS-df-50r"/>
+                            <outlet property="delegate" destination="GkE-Gn-Ebp" id="XiL-LB-sRY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="FBj-ka-uEE"/>
+                    <connections>
+                        <segue destination="niy-Gq-saF" kind="show" identifier="goToUploadLocation" id="USN-ro-iiL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4A-dk-RwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="-13"/>
+        </scene>
+        <!--Upload Location View Controller-->
+        <scene sceneID="PI0-NT-hj2">
+            <objects>
+                <viewController id="niy-Gq-saF" customClass="UploadLocationViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8d-QV-jHb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1ex-gM-G1t"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7F8-r9-QOp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHG-HY-q5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4383" y="-13"/>
+        </scene>
         <!--ルート一覧-->
         <scene sceneID="V2H-Mw-iTy">
             <objects>
                 <tableViewController id="9Bg-Eh-hjg" customClass="AdminSelectRouteTableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="umj-25-syL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeListCell" id="Jhu-mE-a2F">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jhu-mE-a2F" id="xE4-r7-EIY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -97,15 +216,15 @@
             <objects>
                 <tableViewController id="Ry4-XQ-38C" customClass="AdminEditRouteTableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2kL-9f-hPy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeEditMenuCell" id="7pG-9V-15y">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7pG-9V-15y" id="zKf-Km-ZDc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -130,13 +249,17 @@
             <objects>
                 <viewController id="H5P-aw-VX0" customClass="AdminMapViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fUc-e2-hqc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bhv-ns-bvf"/>
                     </view>
                     <navigationItem key="navigationItem" title="地点の追加・削除" id="BVs-R4-QS5">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="q7v-zc-vAa"/>
+                        <barButtonItem key="rightBarButtonItem" title="削除" id="q7v-zc-vAa">
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="H5P-aw-VX0" id="4tV-me-PXv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU0-tu-PY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,11 +271,12 @@
             <objects>
                 <viewController id="jJU-ON-COp" customClass="AdminTimetableViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYX-xr-2Vg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sbl-cA-bTf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kdb-sz-1LO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTj-1B-WSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,9 +285,10 @@
         <!--Navigation Controller-->
         <scene sceneID="UFC-6o-GKX">
             <objects>
-                <navigationController id="dtd-To-0X3" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="dtd-To-0X3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="na8-HW-Yf0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aiK-n3-0ur">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -177,37 +302,35 @@
         <!--Login View Controller-->
         <scene sceneID="LH0-kK-OJv">
             <objects>
-                <viewController id="cIW-Jw-rQh" customClass="LoginViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cIW-Jw-rQh" customClass="LoginViewController" customModule="CarLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rS-go-uUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GI7-nI-Nzt">
-                                <rect key="frame" x="50" y="496" width="314" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="50" y="433" width="275" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3O-QA-2XK">
-                                <rect key="frame" x="50" y="380" width="314" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="50" y="318" width="275" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56m-YC-7ZB">
-                                <rect key="frame" x="163.5" y="460" width="87" height="21"/>
+                                <rect key="frame" x="144" y="402" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログインID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO6-xa-lVR">
-                                <rect key="frame" x="164" y="344" width="86" height="21"/>
+                                <rect key="frame" x="144.5" y="287" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-aB-6cp">
-                                <rect key="frame" x="107" y="625" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="517" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.1580742386" green="0.1580742386" blue="0.1580742386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wVl-aB-6cp" secondAttribute="height" multiplier="4:1" id="aci-l5-vct"/>
@@ -227,7 +350,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdk-AO-RM2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="管理者ログイン" id="V6B-dz-vv7">
                                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="ISh-4c-GOi">
@@ -241,21 +364,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="56m-YC-7ZB" firstAttribute="top" secondItem="b3O-QA-2XK" secondAttribute="bottom" constant="50" id="28k-te-JDF"/>
-                            <constraint firstItem="GI7-nI-Nzt" firstAttribute="top" secondItem="56m-YC-7ZB" secondAttribute="bottom" constant="15" id="3hu-UR-GrJ"/>
+                            <constraint firstItem="wVl-aB-6cp" firstAttribute="top" secondItem="GI7-nI-Nzt" secondAttribute="bottom" constant="50" id="6hl-qb-kZ6"/>
+                            <constraint firstItem="56m-YC-7ZB" firstAttribute="top" secondItem="b3O-QA-2XK" secondAttribute="bottom" constant="50" id="Cor-2L-kbY"/>
                             <constraint firstItem="k1B-PH-Fpx" firstAttribute="trailing" secondItem="GI7-nI-Nzt" secondAttribute="trailing" constant="50" id="DJO-vX-XZr"/>
                             <constraint firstItem="zdk-AO-RM2" firstAttribute="top" secondItem="k1B-PH-Fpx" secondAttribute="top" id="J1X-pO-q8b"/>
                             <constraint firstItem="zdk-AO-RM2" firstAttribute="leading" secondItem="k1B-PH-Fpx" secondAttribute="leading" id="K90-65-UWt"/>
                             <constraint firstItem="zdk-AO-RM2" firstAttribute="trailing" secondItem="k1B-PH-Fpx" secondAttribute="trailing" id="Qq5-BZ-nkD"/>
                             <constraint firstItem="NO6-xa-lVR" firstAttribute="centerX" secondItem="4rS-go-uUQ" secondAttribute="centerX" id="R8b-5u-h3g"/>
-                            <constraint firstItem="wVl-aB-6cp" firstAttribute="top" secondItem="GI7-nI-Nzt" secondAttribute="bottom" constant="99" id="UQe-YZ-Sno"/>
-                            <constraint firstItem="b3O-QA-2XK" firstAttribute="top" secondItem="NO6-xa-lVR" secondAttribute="bottom" constant="15" id="ZPH-9h-OEJ"/>
-                            <constraint firstItem="NO6-xa-lVR" firstAttribute="top" secondItem="k1B-PH-Fpx" secondAttribute="top" constant="300" id="agV-BL-rNg"/>
                             <constraint firstItem="GI7-nI-Nzt" firstAttribute="leading" secondItem="k1B-PH-Fpx" secondAttribute="leading" constant="50" id="ciM-L8-vNj"/>
                             <constraint firstItem="56m-YC-7ZB" firstAttribute="centerX" secondItem="4rS-go-uUQ" secondAttribute="centerX" id="d3U-0O-ZPW"/>
+                            <constraint firstItem="k1B-PH-Fpx" firstAttribute="bottom" secondItem="wVl-aB-6cp" secondAttribute="bottom" constant="100" id="kbS-jn-h4j"/>
                             <constraint firstItem="wVl-aB-6cp" firstAttribute="centerX" secondItem="4rS-go-uUQ" secondAttribute="centerX" id="kcY-uP-eaY"/>
+                            <constraint firstItem="GI7-nI-Nzt" firstAttribute="top" secondItem="56m-YC-7ZB" secondAttribute="bottom" constant="10" id="liy-Fz-7jC"/>
                             <constraint firstItem="k1B-PH-Fpx" firstAttribute="trailing" secondItem="b3O-QA-2XK" secondAttribute="trailing" constant="50" id="mcO-ac-umP"/>
                             <constraint firstItem="b3O-QA-2XK" firstAttribute="leading" secondItem="k1B-PH-Fpx" secondAttribute="leading" constant="50" id="tua-5B-knX"/>
+                            <constraint firstItem="b3O-QA-2XK" firstAttribute="top" secondItem="NO6-xa-lVR" secondAttribute="bottom" constant="10" id="ytv-Pn-bVv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k1B-PH-Fpx"/>
                     </view>

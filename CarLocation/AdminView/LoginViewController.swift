@@ -32,7 +32,6 @@ class LoginViewController: UIViewController {
             })
         }
     }
-    
 
     @IBAction func loginButtonPressed(_ sender: Any) {
         SVProgressHUD.show()

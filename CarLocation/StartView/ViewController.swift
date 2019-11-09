@@ -7,7 +7,6 @@ import FontAwesome_swift
 class ViewController: UIViewController{
     
     var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
     let sidemenuViewController = SideMenuViewController()
@@ -19,8 +18,6 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
-
-        setupLocationManager()
 
         //マップビューを画面に設定
         let gmsCamera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: zoomLevel)
@@ -35,6 +32,10 @@ class ViewController: UIViewController{
         
         sidemenuViewController.delegate = self
         sidemenuViewController.startPanGestureRecognizing()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupLocationManager()
     }
     
     //メニューボタンの作成
@@ -95,7 +96,7 @@ extension ViewController: CLLocationManagerDelegate {
     func setupLocationManager() {
         let status = CLLocationManager.authorizationStatus()
         if status == .authorizedAlways || status == .authorizedWhenInUse {
-            print("位置情報の取得を開始します")
+            print("位置情報の取得を開始します:初期画面")
             locationManager.distanceFilter = 10
             locationManager.startUpdatingLocation()
         } else {
@@ -104,7 +105,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("位置情報を取得しました")
+        print("位置情報を取得しました：初期画面")
         guard let location = locations.last else {
             preconditionFailure("配列から位置情報を取得できませんでした")
         }
@@ -161,6 +162,7 @@ extension ViewController: SidemenuViewControllerDelegate {
         switch indexPath.row {
         case 3:
             performSegue(withIdentifier: "goToLoginView", sender: self)
+            locationManager.stopUpdatingLocation()
             print(indexPath.row)
             break
             

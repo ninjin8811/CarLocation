@@ -25,7 +25,7 @@ class AdminEditRouteTableViewController: UITableViewController {
             guard let destinationVC = segue.destination as? AdminMapViewController else {
                 preconditionFailure("遷移先のViewControllerを取得できませんでした")
             }
-            destinationVC.correspondFirestore = correspondFirestore
+            destinationVC.uncorrespondFirestore = correspondFirestore
             destinationVC.selectedIndex = selectedIndex
         }
     }

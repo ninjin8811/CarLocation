@@ -10,7 +10,7 @@ import UIKit
 
 class AdminMenuTableViewController: UITableViewController {
     
-    let adminMenuList = ["ルートを追加・編集", "ログアウト"]
+    let adminMenuList = ["ルートを追加・編集", "位置情報を送信",  "ログアウト"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,10 @@ class AdminMenuTableViewController: UITableViewController {
             break
             
         case 1:
+            performSegue(withIdentifier: "goToSelectLocationRoute", sender: self)
+            break
+            
+        case 2:
             dismiss(animated: true, completion: nil)
             break
             

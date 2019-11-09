@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		236916DB6FED720BB9D23D1B /* Pods_CarLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC16C5AF89DAA3B2B076D57 /* Pods_CarLocation.framework */; };
 		9A09671C22D8E2B20011A329 /* AdminMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */; };
+		9A21106422F5CB9900311285 /* LocationRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A21106322F5CB9900311285 /* LocationRouteTableViewController.swift */; };
+		9A21106622F5CBF400311285 /* UploadLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A21106522F5CBF400311285 /* UploadLocationViewController.swift */; };
+		9A235C3023768DBF0020C639 /* SelectSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A235C2F23768DBF0020C639 /* SelectSchoolViewController.swift */; };
+		9A235C3223768DCD0020C639 /* SelectPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A235C3123768DCD0020C639 /* SelectPointViewController.swift */; };
+		9A235C3423768DDC0020C639 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A235C3323768DDC0020C639 /* RouteDetailViewController.swift */; };
 		9A247EEE22E09ED4008A0C06 /* CorrespondFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A247EED22E09ED4008A0C06 /* CorrespondFirestore.swift */; };
 		9A5239C822D8EAB400E584E2 /* AdminMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239C722D8EAB400E584E2 /* AdminMapViewController.swift */; };
 		9A5239CC22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5239CB22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift */; };
@@ -30,6 +35,11 @@
 		77D38E7B987751D07F10BF9C /* Pods-CarLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4BE62763E2E0C113DFD7C0 /* Pods-CarLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarLocation/Pods-CarLocation.release.xcconfig"; sourceTree = "<group>"; };
 		9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuTableViewController.swift; sourceTree = "<group>"; };
+		9A21106322F5CB9900311285 /* LocationRouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRouteTableViewController.swift; sourceTree = "<group>"; };
+		9A21106522F5CBF400311285 /* UploadLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadLocationViewController.swift; sourceTree = "<group>"; };
+		9A235C2F23768DBF0020C639 /* SelectSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSchoolViewController.swift; sourceTree = "<group>"; };
+		9A235C3123768DCD0020C639 /* SelectPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPointViewController.swift; sourceTree = "<group>"; };
+		9A235C3323768DDC0020C639 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		9A247EED22E09ED4008A0C06 /* CorrespondFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrespondFirestore.swift; sourceTree = "<group>"; };
 		9A5239C722D8EAB400E584E2 /* AdminMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMapViewController.swift; sourceTree = "<group>"; };
 		9A5239CB22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectRouteTableViewController.swift; sourceTree = "<group>"; };
@@ -73,11 +83,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A21106222F5CB1300311285 /* UploadLocationView */ = {
+			isa = PBXGroup;
+			children = (
+				9A21106322F5CB9900311285 /* LocationRouteTableViewController.swift */,
+				9A21106522F5CBF400311285 /* UploadLocationViewController.swift */,
+			);
+			path = UploadLocationView;
+			sourceTree = "<group>";
+		};
 		9A5239C622D8EA6C00E584E2 /* AdminView */ = {
 			isa = PBXGroup;
 			children = (
 				9A09671B22D8E2B20011A329 /* AdminMenuTableViewController.swift */,
 				9A6871CF22E083DB00F1F8DE /* LoginViewController.swift */,
+				9A21106222F5CB1300311285 /* UploadLocationView */,
 				9A6871CE22E0812A00F1F8DE /* EditRouteView */,
 			);
 			path = AdminView;
@@ -95,6 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				9ABBB0A522B7E9BE000DF98F /* ViewController.swift */,
+				9A235C2F23768DBF0020C639 /* SelectSchoolViewController.swift */,
+				9A235C3123768DCD0020C639 /* SelectPointViewController.swift */,
+				9A235C3323768DDC0020C639 /* RouteDetailViewController.swift */,
 			);
 			path = StartView;
 			sourceTree = "<group>";
@@ -325,8 +348,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A21106622F5CBF400311285 /* UploadLocationViewController.swift in Sources */,
 				9A74B66222E754B5006A4A9D /* PopupMenuViewController.swift in Sources */,
 				9A5239CE22D9AD0500E584E2 /* RouteData.swift in Sources */,
+				9A235C3223768DCD0020C639 /* SelectPointViewController.swift in Sources */,
 				9A5239D322DF6F0D00E584E2 /* AdminTimetableViewController.swift in Sources */,
 				9ABBB0A622B7E9BE000DF98F /* ViewController.swift in Sources */,
 				9A5239CC22D9A4A900E584E2 /* AdminSelectRouteTableViewController.swift in Sources */,
@@ -334,9 +359,12 @@
 				9A62A5A222D1ED540045E882 /* SideMenuViewController.swift in Sources */,
 				9A09671C22D8E2B20011A329 /* AdminMenuTableViewController.swift in Sources */,
 				9ABBB0A422B7E9BE000DF98F /* AppDelegate.swift in Sources */,
+				9A21106422F5CB9900311285 /* LocationRouteTableViewController.swift in Sources */,
 				9A247EEE22E09ED4008A0C06 /* CorrespondFirestore.swift in Sources */,
 				9A6871D022E083DB00F1F8DE /* LoginViewController.swift in Sources */,
+				9A235C3423768DDC0020C639 /* RouteDetailViewController.swift in Sources */,
 				9A5239D122DF6EE400E584E2 /* AdminEditRouteTableViewController.swift in Sources */,
+				9A235C3023768DBF0020C639 /* SelectSchoolViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,10 @@ class CorrespondData {
     
     let firestoreDB = Firestore.firestore()
     var routes = [RouteData]()
+    var documentIDarray = [String]()
     
+    
+    //RouteDataを保存する時に使う
     func storeData(_ data: Any, _ after: @escaping (Bool) -> Void) {
         var isStored = false
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -35,9 +38,52 @@ class CorrespondData {
             }
             after(isStored)
         }
-        
     }
     
+    //位置情報をRouteDataの中に保存する時に使う
+    func uploadLocation(_ index: Int, _ data: locationData, _ uid: String) {
+        
+        routes[index].latestLocation = data
+        do {
+            let mergeLocationData = try FirestoreEncoder().encode(routes[index])
+            firestoreDB.collection("users").document(uid).collection("routes").document(documentIDarray[index]).setData(mergeLocationData, merge: true) { (error) in
+                if let errorMessage = error {
+                    print("Firestoreへの位置情報のマージに失敗しました：\(errorMessage)")
+                } else {
+                    print("位置情報をFirestoreへマージしました")
+                }
+            }
+        } catch {
+            print("エンコードに失敗しました：\(error)")
+        }
+    }
+    
+    //地点の追加時に使う
+    func mergeSpotdata(_ index: Int, _ after: @escaping (Bool) -> Void) {
+        var isStored = false
+        guard let uid = Auth.auth().currentUser?.uid else {
+            preconditionFailure("ユーザーIDの取得に失敗しました")
+        }
+        let sinceDate = Date().timeIntervalSince1970
+        routes[index].updatedDate = sinceDate
+        
+        do {
+            let mergeData = try FirestoreEncoder().encode(routes[index])
+            firestoreDB.collection("users").document(uid).collection("routes").document(documentIDarray[index]).setData(mergeData, merge: true) { (error) in
+                if let errorMessage = error {
+                    print("Firestoreへのデータのマージに失敗しました：\(errorMessage)")
+                } else {
+                    isStored = true
+                    print("データをFirestoreへ追加保存,削除しました")
+                }
+                after(isStored)
+            }
+        } catch {
+            print("エンコードに失敗しました：\(error)")
+        }
+    }
+    
+    //データを全て取得する時に使う
     func fetchData(_ after: @escaping (Bool) -> Void) {
         var isFetched = false
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -58,6 +104,7 @@ class CorrespondData {
                     do {
                         let addRouteData = try FirestoreDecoder().decode(RouteData.self, from: document.data())
                         self.routes.append(addRouteData)
+                        self.documentIDarray.append(document.documentID)
                         isFetched = true
                     } catch {
                         print("Firestoreから取得したドキュメントのデコードに失敗しました")
@@ -69,44 +116,3 @@ class CorrespondData {
         }
     }
  }
-
-
-//guard let uid = userID else {
-//    preconditionFailure("ユーザーIDが渡されてませんでした！")
-//}
-//
-//let profileDictionary: [String: Any] = ["gender": gender, "name": name, "age": age, "team": team, "region": region, "userID": uid, "imageURL": profileData.imageURL]
-//
-//db.collection("users").document(uid).setData(profileDictionary) { (error) in
-//    if error != nil {
-//        print("セーブできませんでした！")
-//    } else {
-//        print("セーブできました！")
-//    }
-//}
-
-
-//var ref = db.collection("users") as Query
-//
-//for i in 0..<child.count {
-//    let temp = ref.whereField(child[i], isEqualTo: equelValue[i])
-//    ref = temp
-//}
-//ref.getDocuments { (snapshots, error) in
-//    if error != nil {
-//        print("ユーザーの検索に失敗しました！")
-//    } else {
-//        guard let snap = snapshots else {
-//            preconditionFailure("データの取得に失敗しました！")
-//        }
-//        for document in snap.documents {
-//            do {
-//                let data = try FirestoreDecoder().decode(Profile.self, from: document.data())
-//                self.list.append(data)
-//            } catch {
-//                print("取得したデータのデコードに失敗しました！")
-//            }
-//        }
-//    }
-//    self.goToPreviousView()
-//}

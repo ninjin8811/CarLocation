@@ -9,7 +9,7 @@
 		<string>Font Awesome 5 Free-Regular-400</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>位置情報取得の許可をお願いします</string>
+	<string>位置情報取得の常時許可をお願いします</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>アプリを使用中の位置情報の許可をお願いします</string>
 	<key>NSLocationUsageDescription</key>
